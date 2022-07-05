@@ -191,7 +191,7 @@ const listMessage = {
         global.dfail('rowner', m, conn)
         throw false
       }
-      global.opts['gconly'] = isEnable
+      global.opts['di'] = isEnable
       break
     case 'antispam':
     case 'antispam':
