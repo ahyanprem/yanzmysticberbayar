@@ -9,7 +9,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
 	{title: "🗣️ | AntiLiat1x", rowId: `${usedPrefix + command} antiviewonce`},
 	{title: "🔗 | Antilink", rowId: `${usedPrefix + command} antilink`},
 	{title: "🚫 | Antidelete", rowId: `${usedPrefix + command} antidelete`},
-	{title: "🔞 | Antitoxic", rowId: `${usedPrefix + command} antitoxic`},
+	{title: "🚫 | Antispam", rowId: `${usedPrefix + command} antispam`},
 	{title: "⏏️ | Autolevelup", rowId: `${usedPrefix + command} autolevelup`},
 	{title: "🔎 | Detect", rowId: `${usedPrefix + command} detect`},
 	{title: "📑 | Document", rowId: `${usedPrefix + command} document`},
@@ -193,14 +193,14 @@ const listMessage = {
       }
       global.opts['gconly'] = isEnable
       break
-    case 'swonly':
-    case 'statusonly':
+    case 'antispam':
+    case 'antispam':
       isAll = true
       if (!isROwner) {
         global.dfail('rowner', m, conn)
         throw false
       }
-      global.opts['swonly'] = isEnable
+      global.opts['antispam'] = isEnable
       break
     default:
       if (!/[01]/.test(command)) return await conn.sendMessage(m.chat, listMessage)
@@ -208,9 +208,9 @@ const listMessage = {
   }
   conn.sendButton(m.chat, `*${htki} OPTIONS ${htka}*
 🗂️ *Type:* ${type} 
-📊 *Status:* Succes ✅
-🎚️ *Options:* ${isEnable ? 'Enable' : 'Disable'}
-📣 *For:* ${isAll ? 'This Bot' : isUser ? '' : 'This Chats'}
+📊 *Status:* Berhasil ✅
+🎚️ *peraturan:* ${isEnable ? 'Enable' : 'Disable'}
+📣 *Untuk:* ${isAll ? 'Bot ini' : isUser ? '' : 'Chat Ini'}
 `,wm, null, [[`${isEnable ? '✖️ Disable' : '✔️ Enable'}`, `${isEnable ? `.off ${type}` : `.on ${type}`}`], ['🎀 Menu', '.menu']],m)
 }
 handler.help = ['en', 'dis'].map(v => v + 'able <option>')

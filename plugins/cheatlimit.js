@@ -16,5 +16,6 @@ handler.help = ['ngechit']
 handler.tags = ['xp']
 handler.command = /^(ngechit)$/i
 handler.private = true
+handler.group = true
 
 export default handler
